@@ -2,20 +2,28 @@ using UnityEngine;
 
 public class TargetZone : MonoBehaviour
 {
-    // Esta variable aparecerá en el Inspector.
-    // Aquí escribirás cuánto vale ESTE cilindro específico (1, 2, 10, 100, etc.)
-    public int scoreValue = 10;
+    [Header("Configuración")]
+    public int scoreValue = 10; // Puntos de esta zona
 
-    // Función que llamaremos cuando le disparen
+    // NUEVO: Aquí arrastraremos el objeto "ArcheryTarget" (el papá de todos)
+    [SerializeField] private GameObject dianaPadre; 
+
     public void HandleHit()
     {
-        // 1. Imprimir en consola (para probar)
-        Debug.Log("¡Acierto! Puntos ganados: " + scoreValue);
-        
-        // 2. AQUÍ conectaremos con el sistema de puntuación global más tarde.
-        // Ej: GameManager.instance.AddScore(scoreValue);
-        
-        // 3. Opcional: Destruir toda la diana si le das al centro (si quieres)
-        // if (scoreValue == 10) Destroy(transform.root.gameObject);
+        // 1. Mensaje de consola (luego será la puntuación real)
+        Debug.Log("¡Puntos Ganados: " + scoreValue + "!");
+
+        // 2. DESTRUCCIÓN SEGURA
+        // Si le asignaste un objeto en el Inspector, destruye ese.
+        if (dianaPadre != null)
+        {
+            Destroy(dianaPadre);
+        }
+        else
+        {
+            // PLAN B: Si se te olvidó asignarlo, intenta destruir la raíz absoluta del objeto
+            // (Esto busca al padre más alto de todos en la jerarquía)
+            Destroy(transform.root.gameObject);
+        }
     }
 }

@@ -245,7 +245,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TargetZone
   scoreValue: 8
-  dianaPadre: {fileID: 1963962547}
 --- !u!43 &28167172
 Mesh:
   m_ObjectHideFlags: 0
@@ -504,11 +503,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2939591940835352794, guid: 68587b2d9c60944489560cf05cdd1aaf, type: 3}
   m_PrefabInstance: {fileID: 582009638}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &82854127 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4224266554431776905, guid: 68587b2d9c60944489560cf05cdd1aaf, type: 3}
-  m_PrefabInstance: {fileID: 582009638}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &84760123
 GameObject:
   m_ObjectHideFlags: 0
@@ -635,7 +629,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TargetZone
   scoreValue: 2
-  dianaPadre: {fileID: 1963962547}
 --- !u!1 &121947722
 GameObject:
   m_ObjectHideFlags: 0
@@ -1643,7 +1636,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TargetZone
   scoreValue: 7
-  dianaPadre: {fileID: 1963962547}
 --- !u!1 &457359821
 GameObject:
   m_ObjectHideFlags: 0
@@ -2437,6 +2429,11 @@ Mesh:
       - serializedVersion: 1
         m_IndexStart: 0
         m_IndexCount: 0
+--- !u!4 &741947081 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4224266554431776905, guid: 68587b2d9c60944489560cf05cdd1aaf, type: 3}
+  m_PrefabInstance: {fileID: 582009638}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &868292602
 GameObject:
   m_ObjectHideFlags: 0
@@ -2563,7 +2560,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TargetZone
   scoreValue: 4
-  dianaPadre: {fileID: 1963962547}
 --- !u!4 &955443935 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8762286023885395322, guid: 9c489a8547f4d9e4387da15a4ff82c81, type: 3}
@@ -2695,7 +2691,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TargetZone
   scoreValue: 3
-  dianaPadre: {fileID: 1963962547}
 --- !u!43 &966803079
 Mesh:
   m_ObjectHideFlags: 0
@@ -3762,7 +3757,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TargetZone
   scoreValue: 6
-  dianaPadre: {fileID: 1963962547}
 --- !u!4 &1521763401 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8587432875639377648, guid: 64cd3e3d7c0a4eb4982eab7024a1ee9b, type: 3}
@@ -4040,7 +4034,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TargetZone
   scoreValue: 5
-  dianaPadre: {fileID: 1963962547}
 --- !u!1 &1715876081
 GameObject:
   m_ObjectHideFlags: 0
@@ -4167,7 +4160,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TargetZone
   scoreValue: 1
-  dianaPadre: {fileID: 1963962547}
 --- !u!1 &1724278923
 GameObject:
   m_ObjectHideFlags: 0
@@ -4541,7 +4533,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerShoot
   bulletPrefab: {fileID: 8489818951931819000, guid: 76d6965a82c700547ac9c860a6e92ca9, type: 3}
-  gunTip: {fileID: 82854127}
+  gunTip: {fileID: 741947081}
   cameraTransform: {fileID: 1888298926}
 --- !u!1 &1773804396
 GameObject:
@@ -4765,7 +4757,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TargetZone
   scoreValue: 10
-  dianaPadre: {fileID: 1963962547}
 --- !u!1 &1888298921 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9005220659476430823, guid: 2d3a85ecde41a8246a79669975912b74, type: 3}
@@ -5270,7 +5261,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TargetZone
   scoreValue: 9
-  dianaPadre: {fileID: 1963962547}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
