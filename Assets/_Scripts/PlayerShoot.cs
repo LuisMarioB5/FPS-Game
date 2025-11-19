@@ -10,9 +10,12 @@ public class PlayerShoot : MonoBehaviour
 
     void Update()
     {
-        if (Mouse.current != null && Mouse.current.leftButton.wasPressedThisFrame)
+        if (GameManager.instance.PuedeDisparar()) 
         {
-            Shoot();
+            if (Mouse.current != null && Mouse.current.leftButton.wasPressedThisFrame)
+            {
+                Shoot(); 
+            }
         }
     }
 

@@ -28,6 +28,8 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
         balasActuales = balasIniciales;
         ActualizarUI();
     }
@@ -45,7 +47,7 @@ public class GameManager : MonoBehaviour
 
         if (balasActuales <= 0)
         {
-            TerminarJuego();
+            TerminarEntrenamiento();
         }
     }
 
@@ -68,12 +70,14 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    void TerminarJuego()
+    void TerminarEntrenamiento()
     {
-        Debug.Log("Juego Terminado. Score Final: " + scoreActual);
+        Debug.Log("Entrenamiento Terminado. Puntuación Final: " + scoreActual);
         
         if (panelResultados != null)
         {
+            textoMunicion.gameObject.SetActive(false);
+            textoScore.gameObject.SetActive(false);
             panelResultados.SetActive(true);
         }
 
@@ -84,5 +88,42 @@ public class GameManager : MonoBehaviour
         
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        
+        if (player != null)
+        {
+            var controller = player.GetComponent<StarterAssets.FirstPersonController>();
+            if (controller != null)
+            {
+                controller.enabled = false;
+            }
+        }
+    }
+
+    // Función para el botón "Reiniciar"
+    public void ReiniciarNivel()
+    {
+        Time.timeScale = 1f;
+
+        // Recargar la escena actual
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void IrAlMenu()
+    {
+        Time.timeScale = 1f;
+
+        Debug.Log("Dirigiendo al Menú Principal ('MainMenu')...");
+
+        // SceneManager.LoadScene("MainMenu");
+    }
+
+    public void IrAlNivel1()
+    {
+        Time.timeScale = 1f;
+
+        Debug.Log("Dirigiendo al Nivel 1 ('Nivel1')...");
+        // SceneManager.LoadScene("Nivel1");
     }
 }

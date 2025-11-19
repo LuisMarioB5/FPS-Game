@@ -46,5 +46,6 @@ public class Bullet : MonoBehaviour
         }
 
         Destroy(gameObject);
+        GameManager.instance.GastarBala();
     }
 }
