@@ -245,6 +245,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TargetZone
   scoreValue: 8
+  dianaPadre: {fileID: 0}
 --- !u!43 &28167172
 Mesh:
   m_ObjectHideFlags: 0
@@ -629,6 +630,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TargetZone
   scoreValue: 2
+  dianaPadre: {fileID: 0}
 --- !u!1 &121947722
 GameObject:
   m_ObjectHideFlags: 0
@@ -1636,6 +1638,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TargetZone
   scoreValue: 7
+  dianaPadre: {fileID: 0}
 --- !u!1 &457359821
 GameObject:
   m_ObjectHideFlags: 0
@@ -2560,6 +2563,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TargetZone
   scoreValue: 4
+  dianaPadre: {fileID: 0}
 --- !u!4 &955443935 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8762286023885395322, guid: 9c489a8547f4d9e4387da15a4ff82c81, type: 3}
@@ -2691,6 +2695,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TargetZone
   scoreValue: 3
+  dianaPadre: {fileID: 0}
 --- !u!43 &966803079
 Mesh:
   m_ObjectHideFlags: 0
@@ -3757,6 +3762,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TargetZone
   scoreValue: 6
+  dianaPadre: {fileID: 0}
 --- !u!4 &1521763401 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8587432875639377648, guid: 64cd3e3d7c0a4eb4982eab7024a1ee9b, type: 3}
@@ -4034,6 +4040,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TargetZone
   scoreValue: 5
+  dianaPadre: {fileID: 0}
 --- !u!1 &1715876081
 GameObject:
   m_ObjectHideFlags: 0
@@ -4160,6 +4167,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TargetZone
   scoreValue: 1
+  dianaPadre: {fileID: 0}
 --- !u!1 &1724278923
 GameObject:
   m_ObjectHideFlags: 0
@@ -4757,6 +4765,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TargetZone
   scoreValue: 10
+  dianaPadre: {fileID: 0}
 --- !u!1 &1888298921 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9005220659476430823, guid: 2d3a85ecde41a8246a79669975912b74, type: 3}
@@ -5261,6 +5270,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TargetZone
   scoreValue: 9
+  dianaPadre: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
