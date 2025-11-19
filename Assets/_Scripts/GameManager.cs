@@ -114,9 +114,7 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 1f;
 
-        Debug.Log("Dirigiendo al Menú Principal ('MainMenu')...");
-
-        // SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene("MainMenu");
     }
 
     public void IrAlNivel1()
