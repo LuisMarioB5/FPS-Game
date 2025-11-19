@@ -23,6 +23,7 @@ public class Bullet : MonoBehaviour
         if (Physics.Raycast(transform.position, transform.forward, out hit, moveDistance))
         {
             HandleImpact(hit.collider);
+            GameManager.instance.GastarBala();
         }
         else
         {
@@ -46,6 +47,5 @@ public class Bullet : MonoBehaviour
         }
 
         Destroy(gameObject);
-        GameManager.instance.GastarBala();
     }
 }
