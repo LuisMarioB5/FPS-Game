@@ -196,6 +196,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Bullet
   speed: 10
   lifeTime: 3
+  impactVfxPrefab: {fileID: 1604547833683209219, guid: 78574922a2bd81041a4297a8f98c2918, type: 3}
+  vfxDuration: 2
+  damage: 1
 --- !u!54 &8075590318781303706
 Rigidbody:
   m_ObjectHideFlags: 0

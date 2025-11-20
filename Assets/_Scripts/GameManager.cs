@@ -8,20 +8,25 @@ public class GameManager : MonoBehaviour
 
     [Header("Configuración")]
     public int balasIniciales = 10;
+    public int enemigosTotales = 3;
     
     [Header("UI")]
+    public GameObject panelResultados;
     public TextMeshProUGUI textoMunicion;
     public TextMeshProUGUI textoScore;
-    public GameObject panelResultados;
+    public TextMeshProUGUI textoVida;
+    public TextMeshProUGUI textoEnemigosRestantes;
     public TextMeshProUGUI textoScoreResultados;
 
     [Header("Salud Jugador")]
-    public TextMeshProUGUI textoVida;
     public int saludMaximaJugador = 100;
     private int saludActualJugador;
 
     private int balasActuales;
+    private int enemigosActuales;
     private int scoreActual = 0;
+
+    public bool juegoTerminado = false; 
 
     void Awake()
     {
@@ -33,12 +38,14 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        // Asegurarse de que el tiempo esté normal al iniciar
         Time.timeScale = 1f;
+        
+        juegoTerminado = false; 
 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         balasActuales = balasIniciales;
+        enemigosActuales = enemigosTotales;
         saludActualJugador = saludMaximaJugador;
         ActualizarUI();
     }
@@ -59,10 +66,21 @@ public class GameManager : MonoBehaviour
             TerminarJuego();
         }
     }
+    
+    public void RestarEnemigo()
+    {
+        enemigosActuales--;
+        ActualizarUI();
+
+        if (enemigosActuales <= 0)
+        {
+            TerminarJuego();
+        }
+    }
 
     public bool PuedeDisparar()
     {
-        return balasActuales > 0;
+        return balasActuales > 0 && !juegoTerminado;
     }
 
 
@@ -82,21 +100,27 @@ public class GameManager : MonoBehaviour
         {
             textoVida.text = "Salud: " + saludActualJugador;
         }
+
+        if (textoEnemigosRestantes != null) 
+        {
+            textoEnemigosRestantes.text = "Enemigos Restantes: " + enemigosActuales;
+        }
     }
 
     void TerminarJuego()
     {
-        // Detener el tiempo del juego
+        juegoTerminado = true;
+
         Time.timeScale = 0f;
 
         Debug.Log("Entrenamiento Terminado. Puntuación Final: " + scoreActual);
-
         
         if (panelResultados != null)
         {
-            textoMunicion.gameObject.SetActive(false);
-            textoScore.gameObject.SetActive(false);
-            textoVida.gameObject.SetActive(false);
+            if (textoMunicion != null) textoMunicion.gameObject.SetActive(false);
+            if (textoScore != null) textoScore.gameObject.SetActive(false);
+            if (textoVida != null) textoVida.gameObject.SetActive(false);
+            
             panelResultados.SetActive(true);
         }
 
@@ -122,6 +146,8 @@ public class GameManager : MonoBehaviour
 
     public void RecibirDañoJugador(int daño)
     {
+        if (juegoTerminado) return;
+
         saludActualJugador -= daño;
         ActualizarUI();
 
@@ -131,33 +157,28 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    // Función para el botón "Reiniciar"
     public void ReiniciarNivel()
     {
         Time.timeScale = 1f;
-
-        // Recargar la escena actual
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public void IrAlMenu()
     {
         Time.timeScale = 1f;
-
         SceneManager.LoadScene("MainMenu");
     }
 
     public void IrAlNivel1()
     {
         Time.timeScale = 1f;
-
         SceneManager.LoadScene("02 Nivel Enemigos"); 
     }
 
     public void IrAlNivel2()
     {
         Time.timeScale = 1f;
-
-        SceneManager.LoadScene("03 Nivel Jefe"); 
+        Debug.Log("Cargando Nivel 3");
+        // SceneManager.LoadScene("03 Nivel Jefe"); 
     }
 }

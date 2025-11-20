@@ -35,5 +35,7 @@ public class HealthSystem : MonoBehaviour
         
         // Destruir al robot
         Destroy(gameObject);
+
+        GameManager.instance.RestarEnemigo();
     }
 }
