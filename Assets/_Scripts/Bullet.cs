@@ -34,13 +34,17 @@ public class Bullet : MonoBehaviour
     void HandleImpact(Collider other)
     {
         if (hasHit) return;
-        
         if (other.CompareTag("Player")) return;
 
         hasHit = true;
 
+        HealthSystem enemigo = other.GetComponent<HealthSystem>();
+        if (enemigo != null)
+        {
+            enemigo.RecibirDaño(1);
+        }
+
         TargetZone zone = other.GetComponent<TargetZone>();
-        
         if (zone != null)
         {
             zone.HandleHit();

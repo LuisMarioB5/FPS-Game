@@ -5,7 +5,6 @@ public class RobotAI : MonoBehaviour
 {
     [Header("Configuración IA")]
     public float detectionRange = 10f; 
-    public int damage = 1;
     
     [Header("Animación Procedimental")]
     public Transform modelTransform; 
@@ -13,6 +12,12 @@ public class RobotAI : MonoBehaviour
     public float bobHeight = 0.05f;
     public float leanAmount = 15f;   
 
+    [Header("Daño al Jugador")]
+    public int dañoAlJugador = 10;
+    public float tiempoEntreAtaques = 1.5f;
+    public float RangoDeAtaque = 2.0f;
+    private float siguienteAtaque = 0f;
+    
     private Transform player;
     private NavMeshAgent agent;
     private float defaultY;
@@ -21,7 +26,7 @@ public class RobotAI : MonoBehaviour
     {
         agent = GetComponent<NavMeshAgent>();
         agent.updateRotation = false;
-        
+
         GameObject p = GameObject.FindGameObjectWithTag("Player");
         if (p != null) player = p.transform;
 
@@ -38,14 +43,20 @@ public class RobotAI : MonoBehaviour
         {
             agent.SetDestination(player.position);
             
-            // --- NUEVO: OBLIGAR A MIRAR AL JUGADOR ---
             FacePlayer(); 
         }
 
         AnimateRobot();
+
+        float distanceToPlayer = Vector3.Distance(transform.position, player.position);
+        
+        if (distanceToPlayer < RangoDeAtaque && Time.time >= siguienteAtaque)
+        {
+            AtacarJugador();
+            siguienteAtaque = Time.time + tiempoEntreAtaques;
+        }
     }
 
-    // Función nueva para corregir la rotación
     void FacePlayer()
     {
         Vector3 direction = (player.position - transform.position).normalized;
@@ -72,11 +83,12 @@ public class RobotAI : MonoBehaviour
         modelTransform.localRotation = Quaternion.Euler(leanAngle, 0, 0);
     }
 
-    void OnCollisionEnter(Collision collision)
+    void AtacarJugador()
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (GameManager.instance != null)
         {
-            Debug.Log("Robot hit the player, dealing " + damage + " damage.");
+            GameManager.instance.RecibirDañoJugador(dañoAlJugador);
+            Debug.Log("¡El robot te golpeó!");
         }
     }
 }

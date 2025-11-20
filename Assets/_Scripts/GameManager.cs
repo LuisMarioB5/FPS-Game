@@ -33,6 +33,9 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        // Asegurarse de que el tiempo esté normal al iniciar
+        Time.timeScale = 1f;
+
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         balasActuales = balasIniciales;
@@ -74,7 +77,7 @@ public class GameManager : MonoBehaviour
         {
             textoScore.text = "Puntos: " + scoreActual;
         }
-        
+
         if (textoVida != null) 
         {
             textoVida.text = "Salud: " + saludActualJugador;
@@ -83,12 +86,17 @@ public class GameManager : MonoBehaviour
 
     void TerminarJuego()
     {
+        // Detener el tiempo del juego
+        Time.timeScale = 0f;
+
         Debug.Log("Entrenamiento Terminado. Puntuación Final: " + scoreActual);
+
         
         if (panelResultados != null)
         {
             textoMunicion.gameObject.SetActive(false);
             textoScore.gameObject.SetActive(false);
+            textoVida.gameObject.SetActive(false);
             panelResultados.SetActive(true);
         }
 
@@ -144,5 +152,12 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1f;
 
         SceneManager.LoadScene("02 Nivel Enemigos"); 
+    }
+
+    public void IrAlNivel2()
+    {
+        Time.timeScale = 1f;
+
+        SceneManager.LoadScene("03 Nivel Jefe"); 
     }
 }
