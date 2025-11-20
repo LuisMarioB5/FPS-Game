@@ -39,11 +39,21 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         Time.timeScale = 1f;
-        
         juegoTerminado = false; 
 
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        string sceneName = SceneManager.GetActiveScene().name;
+
+        if (sceneName == "MainMenu") 
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
+        else 
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
+
         balasActuales = balasIniciales;
         enemigosActuales = enemigosTotales;
         saludActualJugador = saludMaximaJugador;
@@ -170,6 +180,12 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene("MainMenu");
     }
 
+    public void IrAlEntrenamiento()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("01 Galeria de tiro"); 
+    }
+
     public void IrAlNivel1()
     {
         Time.timeScale = 1f;
@@ -180,5 +196,11 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene("03 Nivel Jefe"); 
+    }
+
+        public void SalirDelJuego()
+    {
+        Debug.Log("Saliendo...");
+        Application.Quit();
     }
 }

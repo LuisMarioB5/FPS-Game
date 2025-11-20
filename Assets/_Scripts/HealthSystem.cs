@@ -15,9 +15,6 @@ public class HealthSystem : MonoBehaviour
     public void RecibirDaño(int cantidad)
     {
         vidaActual -= cantidad;
-        
-        // Efecto visual opcional (cambiar color al recibir daño)
-        GetComponent<Renderer>().material.color = Color.red; 
 
         if (vidaActual <= 0)
         {

@@ -7097,6 +7097,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8121072907299569599, guid: 394bc41d4b0a6934ea5833ef4f35b77d, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 240
+      objectReference: {fileID: 0}
+    - target: {fileID: 8121072907299569599, guid: 394bc41d4b0a6934ea5833ef4f35b77d, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -120
+      objectReference: {fileID: 0}
     - target: {fileID: 8435252632704259206, guid: 394bc41d4b0a6934ea5833ef4f35b77d, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -14788,6 +14796,7 @@ MonoBehaviour:
   textoEnemigosRestantes: {fileID: 775481451}
   textoScoreResultados: {fileID: 775481449}
   saludMaximaJugador: 100
+  juegoTerminado: 0
 --- !u!4 &1811700733
 Transform:
   m_ObjectHideFlags: 0

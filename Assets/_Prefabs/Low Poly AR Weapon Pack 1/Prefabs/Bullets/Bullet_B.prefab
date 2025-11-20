@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6684032260057066472}
   - component: {fileID: 7195899635573352911}
   - component: {fileID: -4176378563081540378}
+  - component: {fileID: 1904032249788880490}
   m_Layer: 0
   m_Name: Bullet_B
   m_TagString: Untagged
@@ -142,6 +143,23 @@ CapsuleCollider:
   m_Height: 0.08775073
   m_Direction: 2
   m_Center: {x: 9.313226e-10, y: 0, z: -0.0046627447}
+--- !u!114 &1904032249788880490
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5170853228683479613}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f6981c8101accd43846a3aedb4fcb0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyProjectile
+  speed: 15
+  damage: 10
+  lifeTime: 5
+  impactVfxPrefab: {fileID: 1604547833683209219, guid: 78574922a2bd81041a4297a8f98c2918, type: 3}
+  vfxDuration: 2
 --- !u!1 &8873547543499807069
 GameObject:
   m_ObjectHideFlags: 0

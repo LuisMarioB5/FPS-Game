@@ -2,9 +2,13 @@ using UnityEngine;
 
 public class EnemyProjectile : MonoBehaviour
 {
-    public float speed = 15f; // Más lento que tus balas para poder esquivar
+    public float speed = 15f;
     public int damage = 10;
     public float lifeTime = 5f;
+
+    [Header("Efectos")]
+    public GameObject impactVfxPrefab;
+    public float vfxDuration = 2f;
 
     void Start()
     {
@@ -16,20 +20,22 @@ public class EnemyProjectile : MonoBehaviour
         transform.Translate(Vector3.forward * speed * Time.deltaTime);
     }
 
-    void OnTriggerEnter(Collider other)
+    void OnTriggerEnter(Collider other) 
     {
-        // Si choca con el Jugador
+        if (impactVfxPrefab != null)
+        {
+            GameObject vfxInstance = Instantiate(impactVfxPrefab, transform.position, transform.rotation * Quaternion.Euler(0, 180, 0));
+            Destroy(vfxInstance, vfxDuration);
+        }
+
         if (other.CompareTag("Player"))
         {
-            // Buscamos el script de salud (que ya hicimos genérico)
-            HealthSystem hp = other.GetComponent<HealthSystem>();
-            if (hp != null)
+            if (GameManager.instance != null)
             {
-                hp.TakeDamage(damage); // Daña al jugador
+                GameManager.instance.RecibirDañoJugador(damage);
             }
             Destroy(gameObject);
         }
-        // Si choca con el escenario (no con otros enemigos)
         else if (!other.CompareTag("Enemy"))
         {
             Destroy(gameObject);
