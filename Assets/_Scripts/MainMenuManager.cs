@@ -10,8 +10,7 @@ public class MainMenuManager : MonoBehaviour
 
     public void CargarCombate()
     {
-        Debug.Log("Cargando Nivel de Combate...");
-        // SceneManager.LoadScene("02 Nivel Enemigos"); 
+        SceneManager.LoadScene("02 Nivel Enemigos"); 
     }
 
     public void SalirDelJuego()

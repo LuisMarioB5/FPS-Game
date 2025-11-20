@@ -15,6 +15,11 @@ public class GameManager : MonoBehaviour
     public GameObject panelResultados;
     public TextMeshProUGUI textoScoreResultados;
 
+    [Header("Salud Jugador")]
+    public TextMeshProUGUI textoVida;
+    public int saludMaximaJugador = 100;
+    private int saludActualJugador;
+
     private int balasActuales;
     private int scoreActual = 0;
 
@@ -31,6 +36,7 @@ public class GameManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         balasActuales = balasIniciales;
+        saludActualJugador = saludMaximaJugador;
         ActualizarUI();
     }
 
@@ -47,7 +53,7 @@ public class GameManager : MonoBehaviour
 
         if (balasActuales <= 0)
         {
-            TerminarEntrenamiento();
+            TerminarJuego();
         }
     }
 
@@ -68,9 +74,14 @@ public class GameManager : MonoBehaviour
         {
             textoScore.text = "Puntos: " + scoreActual;
         }
+        
+        if (textoVida != null) 
+        {
+            textoVida.text = "Salud: " + saludActualJugador;
+        }
     }
 
-    void TerminarEntrenamiento()
+    void TerminarJuego()
     {
         Debug.Log("Entrenamiento Terminado. Puntuación Final: " + scoreActual);
         
@@ -101,6 +112,17 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void RecibirDañoJugador(int daño)
+    {
+        saludActualJugador -= daño;
+        ActualizarUI();
+
+        if (saludActualJugador <= 0)
+        {
+            TerminarJuego();
+        }
+    }
+
     // Función para el botón "Reiniciar"
     public void ReiniciarNivel()
     {
@@ -121,7 +143,6 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 1f;
 
-        Debug.Log("Dirigiendo al Nivel 1 ('Nivel1')...");
-        // SceneManager.LoadScene("Nivel1");
+        SceneManager.LoadScene("02 Nivel Enemigos"); 
     }
 }
