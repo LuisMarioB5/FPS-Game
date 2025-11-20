@@ -120,6 +120,7 @@ public class GameManager : MonoBehaviour
             if (textoMunicion != null) textoMunicion.gameObject.SetActive(false);
             if (textoScore != null) textoScore.gameObject.SetActive(false);
             if (textoVida != null) textoVida.gameObject.SetActive(false);
+            if (textoEnemigosRestantes != null) textoEnemigosRestantes.gameObject.SetActive(false);
             
             panelResultados.SetActive(true);
         }
@@ -178,7 +179,6 @@ public class GameManager : MonoBehaviour
     public void IrAlNivel2()
     {
         Time.timeScale = 1f;
-        Debug.Log("Cargando Nivel 3");
-        // SceneManager.LoadScene("03 Nivel Jefe"); 
+        SceneManager.LoadScene("03 Nivel Jefe"); 
     }
 }
